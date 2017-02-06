@@ -1,4 +1,4 @@
-*** LINAPPLE 2b***
+*** LINAPPLE 2c***
 
 [INTRO]
 
@@ -24,7 +24,7 @@ Please, see **INSTALL.md** file for comprehensive installing tips.
 After you've installed the SDL1.2, zlib, libcurl and libzip (the development versions with -dev or -devel suffixes) on your system, you can build sources.
 
 Once you've clone the project
-$ git clone
+$ git clone https://github.com/jmparis/linapple
 
 Go to src directory:
 $ cd src
@@ -49,7 +49,7 @@ It works as well as AppleWin, although it needs testing and supporting.
 Where to install? Anywhere you feel fit,  just let linapple be with some files it needs for comprehenceive working.
 
 These files are:
-splash.bmp 			- splash screen
+splash.bmp 		- splash screen
 charset40.bmp		- charset for Apple][ (Apple 2e, etc.) text modes.
 font.bmp			- font for Help screen and Disk Select screens.
 icon.bmp			- nice icon, logo of Apple][ computer.
