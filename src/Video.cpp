@@ -1866,13 +1866,13 @@ void VideoInitialize () {
   ZeroMemory(vidlastmem,0x10000);
 
   // LOAD THE splash screen
-  tmp_surface = SDL_LoadBMP("images/splash.bmp");
+  tmp_surface = SDL_LoadBMP("resources/splash.bmp");
   if (tmp_surface != NULL)  g_hLogoBitmap = SDL_DisplayFormat(tmp_surface);
   	else fprintf(stderr, "Video: splash.bmp was not loaded\n");
   SDL_FreeSurface(tmp_surface);
 
   // LOAD APPLE CHARSET40
-  tmp_surface = SDL_LoadBMP("images/charset40.bmp");
+  tmp_surface = SDL_LoadBMP("resources/charset40.bmp");
   if(tmp_surface != NULL)  charset40 = SDL_DisplayFormat(tmp_surface);
   	else fprintf(stderr, "Video: Apple text is not unavailable: charset40.bmp was not loaded\n");
   SDL_FreeSurface(tmp_surface);

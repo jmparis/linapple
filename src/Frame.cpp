@@ -1204,7 +1204,7 @@ int InitSDL()
 	SDL_WM_SetIcon(apple_icon, NULL);
 	printf("Icon was set! Width=%d, height=%d\n", apple_icon->w, apple_icon->h);*/
 
-	apple_icon = SDL_LoadBMP("images/icon.bmp");
+	apple_icon = SDL_LoadBMP("resources/icon.bmp");
 	if(apple_icon != NULL) {
 		Uint32 colorkey = SDL_MapRGB(apple_icon->format, 0, 0, 0);
 		SDL_SetColorKey(apple_icon, SDL_SRCCOLORKEY, colorkey);
