@@ -35,7 +35,7 @@ $(EXE): Applewin
 	mv $^ $@
 	strip $@
 	@echo " o $(EXE) compiled succesfully"
-	cp $@ ../
+#	cp $@ ../
 
 clean:
 	rm -f $(EXE) *.o
