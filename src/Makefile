@@ -1,28 +1,46 @@
-CXX ?= c++
-CXXFLAGS ?= -O3
-CXXFLAGS += -w
+#
+# Makefile
+#
 
-OBJS := $(filter-out Applewin.cpp Util_MemoryTextFile.cpp,$(wildcard *.cpp))
-OBJS := $(OBJS:.cpp=.o)
+# Compiler flags
+CXX			?=	c++
+CXXFLAGS	?=	-O3
+CXXFLAGS	+=	-w
 
-SDL_CONFIG ?= sdl-config
+# SDL Library
+SDL_CONFIG	?=	sdl-config
 #SDL_CONFIG ?= sdl2-config
-SDL_CFLAGS = $(shell $(SDL_CONFIG) --cflags)
-SDL_LIBS = $(shell $(SDL_CONFIG) --libs)
+SDL_CFLAGS	=	$(shell $(SDL_CONFIG) --cflags)
+SDL_LIBS	=	$(shell $(SDL_CONFIG) --libs)
 
-CURL_CONFIG ?= curl-config
-CURL_CFLAGS = $(shell $(CURL_CONFIG) --cflags)
-CURL_LIBS = $(shell $(CURL_CONFIG) --libs)
+CXXFLAGS	+=	$(SDL_CFLAGS)
+LDLIBS		+=	$(SDL_LIBS)
 
-CXXFLAGS += $(SDL_CFLAGS)
-CXXFLAGS += $(CURL_CFLAGS)
-LDLIBS += $(SDL_LIBS) $(CURL_LIBS) -lz -lzip
+
+# CURL Library
+CURL_CONFIG ?=	curl-config
+CURL_CFLAGS	=	$(shell $(CURL_CONFIG) --cflags)
+CURL_LIBS	=	$(shell $(CURL_CONFIG) --libs)
+
+CXXFLAGS	+=	$(CURL_CFLAGS)
+LDLIBS		+=	$(CURL_LIBS)
+
+
+# Extra libs
+LDLIBS		+=	-lz -lzip
+
+
+OBJS		:=	$(filter-out Applewin.cpp Util_MemoryTextFile.cpp,$(wildcard *.cpp))
+OBJS		:=	$(OBJS:.cpp=.o)
 
 # Define executable and installing directory
-EXE = linapple
-INSTDIR = /usr/local/$(EXE)
-STARTUP = /usr/local/bin/$(EXE)
-DATA = ../charset40.bmp ../font.bmp ../icon.bmp ../splash.bmp ../Master.dsk ../linapple.installed.conf
+EXE		=	linapple
+INSTDIR =	/usr/local/$(EXE)
+STARTUP =	/usr/local/bin/$(EXE)
+
+RES		=	resources
+DSK 	=	../images/Master.dsk
+CONF	=	linapple.installed.conf
 
 .PHONY: all clean install uninstall
 
@@ -40,7 +58,7 @@ clean:
 	rm -f $(EXE) *.o
 
 #
-# Installation routines
+# Installation/uninstallation rules
 #
 
 install: all
@@ -51,7 +69,10 @@ install: all
 	mkdir -p "$(INSTDIR)/ftp/cache"
 
 	@echo " o Installing game and data to '$(INSTDIR)'"
-	cp $(EXE) $(DATA) "$(INSTDIR)"
+	cp $(EXE) "$(INSTDIR)"
+	cp -r $(RES) "$(INSTDIR)"
+	cp $(CONF) "$(INSTDIR)"
+	cp $(DSK) "$(INSTDIR)/images"
 
 	@echo " o Preparing configuration file 'linapple.conf'"
 	mv "$(INSTDIR)/linapple.installed.conf" "$(INSTDIR)/linapple.conf"
