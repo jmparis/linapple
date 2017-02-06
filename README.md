@@ -1,25 +1,32 @@
 *** LINAPPLE 2b***
 
 [INTRO]
+
 What is linapple?
-It is an emulator of Apple2 (Apple][, Apple 2, Apple 2e etc.) computer series for Linux or other OSes with SDL support.
-(SDL means Simple Direct Media Layer written by Sam Lantinga and others).
 
-Linapple works out of the box, just make it once and run whenever you wish.
+It is an Apple 2 emulator (Apple][, Apple 2, Apple 2e, etc. computer series). I works on Linux or other OSes with SDL support. **SDL** means Simple Direct Media Layer; and has been written by Sam Lantinga and others.
 
-Why not AppleLin? Yes, at first I think to call it such, but later linapple seemed better to me. And one point!
-This is my work for making it possible to have comprehensive emulator of Apple][ computer series in Linux.
-The original source is from AppleWin (http://applewin.berlios.de) by Tom Charlesworth and others.
+**Linapple** works out of the box, just *make* it once and run whenever you wish.
+
+Why not AppleLin?
+
+Yes, at first I think to call it such, but later linapple seemed better to me. And one point! This is my work for making it possible to have comprehensive emulator of Apple][ computer series in Linux.
+The original source is from *AppleWin* (http://applewin.berlios.de) by Tom Charlesworth and others.
+
 I just adapted it for: video+audio for SDL, other functions for POSIX compliant OS, which Linux is in particularly.
 Later some sort of Windows support had been added, so you may try to compile it under Windows.
 
 [INSTALL]
 
 I will show brief instructions for compiling and installing linapple here.
-Please, see INSTALL file for comprehensive installing tips.
-After SDL1.2, zlib, libcurl and libzip (development versions with -dev or -devel suffixes) are installed in your system, you can build sources.
 
-Unpack downloaded linapple archive and go to src directory:
+Please, see **INSTALL.md** file for comprehensive installing tips.
+After you've installed the SDL1.2, zlib, libcurl and libzip (the development versions with -dev or -devel suffixes) on your system, you can build sources.
+
+Once you've clone the project
+$ git clone
+
+Go to src directory:
 $ cd src
 
 Then run:
@@ -32,7 +39,6 @@ If there is no errors, run:
 $ linapple
 
 or without being installed:
-$ cd ..
 $ ./linapple
 
 If all files are on their places, you should see an X-Window with splash screen. 
@@ -125,6 +131,7 @@ Wanted:
 More testing and debugging needed, of course. I would be grateful for any comment or suggestion regarding linapple, and using it on OSes other than Linux.
 
 [CONTACTS]
+
 I am beotiger, you may contact me at your will by my email beotiger@gmail.com
 
 Web-sites:
